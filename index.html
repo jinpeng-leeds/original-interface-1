@@ -828,20 +828,7 @@
                 </div>
             </div>
         </div>
-        <div v-if="showOutOfRangeDialog" class="out-of-range-dialog-mask">
-            <div class="out-of-range-dialog">
-                <div class="out-of-range-title">NOTICE: OUT OF RANGE</div>
-                <div class="out-of-range-content">The pin you placed is outside the range</div>
-                <ol class="out-of-range-list">
-                    <li>If the entry is correct, please add a comment explaining the cause of it being placed (for example the pin closely connect one place of range).</li>
-                    <li>It is a placing mistake, correct the entry.</li>
-                    <li>You can place the pin in the marked line area.</li>
-                </ol>
-                <div class="out-of-range-btn-row">
-                    <button class="out-of-range-btn" @click="showOutOfRangeDialog = false">Continue</button>
-                </div>
-            </div>
-        </div>
+
         <div v-if="showCarousel" class="carousel-container">
             <div class="carousel-bubble">
                 <button class="carousel-close-btn" @click="stopCarousel();showCarousel=false">×</button>
