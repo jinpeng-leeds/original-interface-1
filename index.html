@@ -828,20 +828,7 @@
                 </div>
             </div>
         </div>
-        <div v-if="showOutOfRangeDialog" class="out-of-range-dialog-mask">
-            <div class="out-of-range-dialog">
-                <div class="out-of-range-title">NOTICE: OUT OF RANGE</div>
-                <div class="out-of-range-content">The pin you placed is outside the range</div>
-                <ol class="out-of-range-list">
-                    <li>If the entry is correct, please add a comment explaining the cause of it being placed (for example the pin closely connect one place of range).</li>
-                    <li>It is a placing mistake, correct the entry.</li>
-                    <li>You can place the pin in the marked line area.</li>
-                </ol>
-                <div class="out-of-range-btn-row">
-                    <button class="out-of-range-btn" @click="showOutOfRangeDialog = false">Continue</button>
-                </div>
-            </div>
-        </div>
+
         <div v-if="showCarousel" class="carousel-container">
             <div class="carousel-bubble">
                 <button class="carousel-close-btn" @click="stopCarousel();showCarousel=false">×</button>
@@ -978,17 +965,8 @@
                     showCarousel: false,
                     carouselIndex: 0,
                     carouselTimer: null,
-                    carouselList: [
-                        'I feel most valued when my opinions are acknowledged and responded because it shows that my contributions are making a difference and are taken seriously by decision-makers.',
-                        'The aspects I enjoy are the interactive discussions and voting mechanisms because they provide a sense of collaboration and transparency in decision-making.',
-                        'Get me excited is seeing tangible results or updates on how my input was used because it reinforces the idea that my participation has impacts and fosters trust in the process.'
-                    ],
-                    carouselAvatars: [
-                        `<svg width='38' height='38' viewBox='0 0 38 38' fill='none' xmlns='http://www.w3.org/2000/svg'><circle cx='19' cy='19' r='19' fill='#B3E5FC'/><ellipse cx='19' cy='16' rx='7' ry='7' fill='#fff'/><ellipse cx='19' cy='32' rx='12' ry='7' fill='#fff'/></svg>`,
-                        `<svg width='38' height='38' viewBox='0 0 38 38' fill='none' xmlns='http://www.w3.org/2000/svg'><circle cx='19' cy='19' r='19' fill='#FFCCBC'/><ellipse cx='19' cy='16' rx='7' ry='7' fill='#fff'/><ellipse cx='19' cy='32' rx='12' ry='7' fill='#fff'/></svg>`,
-                        `<svg width='38' height='38' viewBox='0 0 38 38' fill='none' xmlns='http://www.w3.org/2000/svg'><circle cx='19' cy='19' r='19' fill='#C8E6C9'/><ellipse cx='19' cy='16' rx='7' ry='7' fill='#fff'/><ellipse cx='19' cy='32' rx='12' ry='7' fill='#fff'/></svg>`
-                    ],
-                    carouselUsernames: ['Alice', 'Bob', 'Charlie'],
+                    
+             
                 }
             },
             methods: {
