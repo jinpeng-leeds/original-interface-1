@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
     <!-- 引入 Element UI 组件库 -->
     <script src="https://unpkg.com/element-ui/lib/index.js"></script>
-    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="./static/css/index.css">
     <style>
         .left-detail-panel,
         .right-panel,
@@ -174,64 +174,6 @@
             border: 2px solid #fff;
             position: relative;
         }
-
-                /* 添加缩放按钮样式 */
-        .zoom-controls {
-            position: absolute;
-            right: 20px;
-            bottom: 20px;
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-            display: flex;
-            flex-direction: column;
-            z-index: 100;
-        }
-
-        .zoom-btn {
-            width: 40px;
-            height: 40px;
-            border: none;
-            background: white;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 20px;
-            color: #666;
-            transition: all 0.2s;
-        }
-
-        .zoom-btn:hover {
-            background: #f5f5f5;
-        }
-
-        .zoom-btn:first-child {
-            border-bottom: 1px solid #eee;
-            border-radius: 8px 8px 0 0;
-        }
-
-        .zoom-btn:last-child {
-            border-radius: 0 0 8px 8px;
-        }
-
-        .zoom-btn:disabled {
-            color: #ccc;
-            cursor: not-allowed;
-        }
-
-        .zoom-percentage {
-            position: absolute;
-            right: 70px;
-            bottom: 20px;
-            background: white;
-            padding: 8px 12px;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-            font-size: 14px;
-            color: #666;
-            z-index: 100;
-        }
     </style>
 </head>
 
@@ -246,7 +188,7 @@
         <div class="container" style="position: relative;">
             <div :class="['sidebar-float', {collapsed: !sidebarOpen}]">
                 <div class="sidebar-header" v-show="sidebarOpen">
-                    <img src="image/banner.png" alt="" style="width: 100%; height: 100%;">
+                    <img src="./static/image/banner.png" alt="" style="width: 100%; height: 100%;">
                 </div>
                 <div class="sidebar-content" v-if="sidebarOpen">
                     <div class="sidebar-content-header">
@@ -284,10 +226,6 @@
             </div>
             <div class="image-content" ref="imageContent" @mousedown="startDrag" @mousemove="onDrag" @mouseup="endDrag"
                 @mouseleave="endDrag" @click="handleImageClick($event)">
-                 <div :class="['draggable-img-wrapper', {dragging: isDragging}]"
-                    :style="{transform: 'translate(' + imgOffset.x + 'px, ' + imgOffset.y + 'px)scale(' + zoomLevel + ')'}">
-                    <img class="draggable-img" ref="draggableImg" src="image/bgc.jpg" draggable="false" />
-                </div>
                 <div v-for="(point, idx) in commentPoints" :key="idx"
                     :class="['comment-point', {active: activePointId === point.id}]" :style="pointStyle(point)"
                     @mouseenter="onPointMouseEnter(idx)" @mouseleave="onPointMouseLeave"
@@ -345,12 +283,10 @@
                         </button>
                     </div>
                 </div>
-                <div class="zoom-controls">
-                    <button class="zoom-btn" @click="zoomIn" :disabled="zoomLevel >= 3">+</button>
-                    <button class="zoom-btn" @click="zoomOut" :disabled="zoomLevel <= 0.4">-</button>
+                <div :class="['draggable-img-wrapper', {dragging: isDragging}]"
+                    :style="{transform: 'translate(' + imgOffset.x + 'px, ' + imgOffset.y + 'px)'}">
+                    <img class="draggable-img" ref="draggableImg" src="./static/image/bgc.jpg" draggable="false" />
                 </div>
-                <div class="zoom-percentage">{{ Math.round(zoomLevel * 100) }}%</div>
-               
             </div>
             <div class="sidebar-toggle-btn-outer" :style="{ left: sidebarOpen ? '23.5rem' : '0' }">
                 <button @click="sidebarOpen = !sidebarOpen">
@@ -422,7 +358,7 @@
                     </svg>
                 </button>
                 <div class="form-title">
-                    <img width="20" height="20" src="image/android.png"
+                    <img width="20" height="20" src="./static/image/android.png"
                         style="vertical-align:middle;margin-right:8px;">
                     Have your say
                 </div>
@@ -583,7 +519,7 @@
                     <div class="form-section">
                         <div class="validate-section">
                             <div class="validate-section-img">
-                                <img src="image/opinion-urn.png" alt="urn" />
+                                <img src="./static/image/opinion-urn.png" alt="urn" />
                             </div>
                             <div class="validate-section-content">
                                 <div class="validate-title">Validate your response</div>
