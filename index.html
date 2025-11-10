@@ -341,6 +341,11 @@
                         </button>
                     </div>
                 </div>
+                <div class="zoom-controls">
+                    <button class="zoom-btn" @click="zoomIn" :disabled="zoomLevel >= 3">+</button>
+                    <button class="zoom-btn" @click="zoomOut" :disabled="zoomLevel <= 0.4">-</button>
+                </div>
+                <div class="zoom-percentage">{{ Math.round(zoomLevel * 100) }}%</div>
                 <div :class="['draggable-img-wrapper', {dragging: isDragging}]"
                     :style="{transform: 'translate(' + imgOffset.x + 'px, ' + imgOffset.y + 'px)'}">
                     <img class="draggable-img" ref="draggableImg" src="image/bgc.jpg" draggable="false" />
