@@ -284,6 +284,10 @@
             </div>
             <div class="image-content" ref="imageContent" @mousedown="startDrag" @mousemove="onDrag" @mouseup="endDrag"
                 @mouseleave="endDrag" @click="handleImageClick($event)">
+                 <div :class="['draggable-img-wrapper', {dragging: isDragging}]"
+                    :style="{transform: 'translate(' + imgOffset.x + 'px, ' + imgOffset.y + 'px)'}">
+                    <img class="draggable-img" ref="draggableImg" src="image/bgc.jpg" draggable="false" />
+                </div>
                 <div v-for="(point, idx) in commentPoints" :key="idx"
                     :class="['comment-point', {active: activePointId === point.id}]" :style="pointStyle(point)"
                     @mouseenter="onPointMouseEnter(idx)" @mouseleave="onPointMouseLeave"
@@ -346,10 +350,7 @@
                     <button class="zoom-btn" @click="zoomOut" :disabled="zoomLevel <= 0.4">-</button>
                 </div>
                 <div class="zoom-percentage">{{ Math.round(zoomLevel * 100) }}%</div>
-                <div :class="['draggable-img-wrapper', {dragging: isDragging}]"
-                    :style="{transform: 'translate(' + imgOffset.x + 'px, ' + imgOffset.y + 'px)'}">
-                    <img class="draggable-img" ref="draggableImg" src="image/bgc.jpg" draggable="false" />
-                </div>
+               
             </div>
             <div class="sidebar-toggle-btn-outer" :style="{ left: sidebarOpen ? '23.5rem' : '0' }">
                 <button @click="sidebarOpen = !sidebarOpen">
