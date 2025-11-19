@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
     <!-- 引入 Element UI 组件库 -->
     <script src="https://unpkg.com/element-ui/lib/index.js"></script>
-    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="./static/css/index.css">
     <style>
         .left-detail-panel,
         .right-panel,
@@ -446,16 +446,16 @@
             <i class="el-icon-arrow-left back-icon"
                 style="color: rgb(102, 102, 102); font-size: 1.4285714285714284rem;"></i>
             <span class="main-title">Home</span>
-            <span class="sub-title">Comment on cycling</span>
+            <span class="sub-title">Comment on Transport</span>
         </div>
         <div class="container" style="position: relative;">
             <div :class="['sidebar-float', {collapsed: !sidebarOpen}]">
                 <div class="sidebar-header" v-show="sidebarOpen">
-                    <img src="image/banner.png" alt="" style="width: 100%; height: 100%;">
+                    <img src="./static/image/banner.png" alt="" style="width: 100%; height: 100%;">
                 </div>
                 <div class="sidebar-content" v-if="sidebarOpen">
                     <div class="sidebar-content-header">
-                        <div class="sidebar-content-header-title">Comment about cycling</div>
+                        <div class="sidebar-content-header-title">Comment about Transport</div>
                         <button class="sidebar-share-btn" title="Share">
                             <svg width="18" height="18" viewBox="0 0 20 20" fill="none">
                                 <path
@@ -468,7 +468,7 @@
                     <div class="sidebar-meta">Reactions 0</div>
                     <hr class="sidebar-divider" />
                     <div style="line-height:1.7;">
-                        Click on the purple 'Have your say' button and drop a pin on the map to tell us about cycling in
+                        Click on the purple 'Have your say' button and drop a pin on the map to tell us about transport in
                         your area.<br>
                         Please note: for general road, pothole and pavement maintenance reporting, visit <a href="#"
                             class="sidebar-link">the Leeds City Council site</a>.
@@ -491,12 +491,12 @@
                 @mouseleave="endDrag" @click="handleImageClick($event)">
                 <div :class="['draggable-img-wrapper', {dragging: isDragging}]"
                     :style="{transform: 'translate(' + imgOffset.x + 'px, ' + imgOffset.y + 'px) scale(' + zoomLevel + ')'}">
-                    <img class="draggable-img" ref="draggableImg" src="image/bgc.jpg" draggable="false" />
+                    <img class="draggable-img" ref="draggableImg" src="./static/image/bgc.jpg" draggable="false" />
                     <!-- 添加可标记区域 -->
                     <div class="markable-area" 
                         :style="{
                             left: (imgSize.width * 0.4) + 'px',
-                            top: (imgSize.height * 0.25) + 'px',
+                            top: (imgSize.height * 0.15) + 'px',
                             width: (imgSize.width * 0.3) + 'px',
                             height: (imgSize.height * 0.3) + 'px'
                         }"
@@ -636,7 +636,7 @@
                     </svg>
                 </button>
                 <div class="form-title">
-                    <img width="20" height="20" src="image/android.png"
+                    <img width="20" height="20" src="./static/image/android.png"
                         style="vertical-align:middle;margin-right:8px;">
                     Have your say
                 </div>
@@ -797,7 +797,7 @@
                     <div class="form-section">
                         <div class="validate-section">
                             <div class="validate-section-img">
-                                <img src="image/opinion-urn.png" alt="urn" />
+                                <img src="./static/image/opinion-urn.png" alt="urn" />
                             </div>
                             <div class="validate-section-content">
                                 <div class="validate-title">Validate your response</div>
@@ -1023,7 +1023,7 @@
                     const markableArea = {
                         left: 40,
                         right: 70,
-                        top: 25,
+                        top: 10,
                         bottom: 55
                     };
                     const isInMarkableArea = x >= markableArea.left && 
@@ -1214,11 +1214,11 @@
                         const imgHeight = img.naturalHeight || img.height;
                         
                         // 设置默认缩放为90%
-                        this.zoomLevel = 0.9;
+                        this.zoomLevel = 0.6;
                         
                         // 计算初始偏移量，使可标记区域在视图中居中
-                        const markableAreaCenterX = imgWidth * 0.55; // 40% + 30%/2
-                        const markableAreaCenterY = imgHeight * 0.4; // 25% + 30%/2
+                        const markableAreaCenterX = imgWidth * 0.45; // 40% + 30%/2
+                        const markableAreaCenterY = imgHeight * 0.6; // 25% + 30%/2
                         
                         this.imgOffset = {
                             x: containerRect.width/2 - markableAreaCenterX * this.zoomLevel,
